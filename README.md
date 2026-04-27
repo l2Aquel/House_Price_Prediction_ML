@@ -16,7 +16,7 @@ This project transforms raw Indian housing data into a deployable price predicti
 - **File Format** – `.ipynb` ,`.py`,`.pkl` and `.csv`
 
 ## 4. Data Source  
-- Source: Kaggle–House Prices India
+- Source: [Kaggle – House Prices India](https://www.kaggle.com/datasets/sukhmandeepsinghbrar/house-prices-india)
 - Volume: 14,619 rows × 23 columns, No missing values, No duplicates
 - Target Variable: price (Range: ₹78,000 – ₹77,00,000 | Mean: ₹5,38,806)
 - Feature Variables: number_of_bedrooms, number_of_bathrooms, living_area, condition_of_the_house, number_of_schools_nearby
@@ -39,7 +39,7 @@ streamlit run app.py
 - 1 bed | 1 bath | 100 sqft | Condition 4 | 6 schools → ₹2,66,994.51
 - 4 bed | 2 bath | 1000 sqft | Condition 4 | 2 schools → ₹3,09,556.77
 
-## 6. Features / Highlights
+## 6. ML Code Highlights
 - GridSearchCV – Random Forest (Best Model)
 ```python
 rfr = RandomForestRegressor()
