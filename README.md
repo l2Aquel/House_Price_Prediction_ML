@@ -30,18 +30,37 @@ Three models were trained and tuned using GridSearchCV:
 
 ### Streamlit Web App
 Users input house features via the UI and click Predict! to receive an instant price estimate.
-> pip install streamlit joblib scikit-learn numpy
-> streamlit run app.py
+```python
+pip install streamlit joblib scikit-learn numpy
+streamlit run app.py
+```
 
 #### Sample Predictions:
 - 1 bed | 1 bath | 100 sqft | Condition 4 | 6 schools → ₹2,66,994.51
 - 4 bed | 2 bath | 1000 sqft | Condition 4 | 2 schools → ₹3,09,556.77
 
-## 6. Business Impact & Insights
+## 6. Features / Highlights
+- GridSearchCV – Random Forest (Best Model)
+```python
+rfr = RandomForestRegressor()
+param_grid = {"max_depth": [5, 10, 15], "n_estimators": [2,3,4,5,6,7,8,9,10]}
+grid_rfr = GridSearchCV(rfr, param_grid)
+grid_rfr.fit(X_train, y_train)
+# Best: {'max_depth': 5, 'n_estimators': 9} | MAE: 158260.65
+```
+
+- Saving & Loading the Model
+```python
+import joblib
+joblib.dump(grid_rfr, "model.pkl")   # Save
+model = joblib.load("model.pkl")     # Load in Streamlit
+```
+
+## 7. Business Impact & Insights
 - Living area, condition, and nearby schools are the strongest price drivers
 - Random Forest outperformed both Linear Regression and Decision Tree, reflecting non-linear relationships in the data
 - The Streamlit app makes price estimation accessible to buyers, sellers, and agents — no data science background needed
 
-## 7. Screenshots / Demos  
-![https://github.com/l2Aquel/AdventureWorks_Dashboard/blob/main/AdventureWorks_preview.png](AdventureWorks_preview.png)
-![https://github.com/l2Aquel/Adventure_Works/blob/main/PostgreSQL.png](PostgreSQL.png)
+## 8. Screenshots / Demos  
+![https://github.com/l2Aquel/House_Price_Prediction_ML/blob/main/streamlit_preview_1.png](streamlit_preview_1.png)
+![https://github.com/l2Aquel/House_Price_Prediction_ML/blob/main/streamlit_preview_2.png](streamlit_preview_2.png)
